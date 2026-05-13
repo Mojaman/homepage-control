@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>トップページの編集</title>
+  </head>
+  <body>
+    <main>
+      <p>
+        <a href="/index.html">戻る</a>
+      </p>
+      <section class="edit">
+        <div class="container">
+          <h3>このページからトップページの文章を編集できます</h3>
+        </div>
+        <section class="sec_welcome">
+          <div class="index">
+            <h3>ようこそ</h3>
+          </div>
+          <textarea id="edit_welcome"></textarea>
+          <div>
+            <p id="display_welcome"></p>
+          </div>
+
+          <button id="save_welcome">保存</button>
+        </section>
+        <section class="sec_activity">
+          <div class="index">
+            <h3>活動内容</h3>
+          </div>
+          <textarea id="edit_activity"></textarea>
+          <div>
+            <p id="display_activity"></p>
+          </div>
+
+          <button id="save_activity">保存</button>
+        </section>
+        <section class="sec_room">
+          <div class="index">
+            <h3>部室紹介</h3>
+          </div>
+          <textarea id="edit_room"></textarea>
+          <div>
+            <p id="display_room"></p>
+          </div>
+
+          <button id="save_room">保存</button>
+        </section>
+      </section>
+    </main>
+
+    <script src="edit_top.js" type="module"></script>
+  </body>
+</html>
