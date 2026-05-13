@@ -1,12 +1,45 @@
 <!doctype html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EditedDocument</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>編集テスト</title>
   </head>
   <body>
-    <h2>Hello, world!!!</h2>
+    <header>
+      <div class="container">
+        <h1>
+          <strong>あいうえお</strong>
+        </h1>
+      </div>
+    </header>
+    <main>
+      <div>
+        <p>このサイトからホームページの文章・記事を編集できます</p>
+      </div>
+      <ul>
+        <li>
+          <a href="/top/edit_top.html">トップページの編集</a>
+        </li>
+        <li>
+          <a href="/articles/edit_articles.html">記事の編集</a>
+        </li>
+        <li>
+          <a href="/member/edit_member.html">部員ページの編集</a>
+        </li>
+      </ul>
+
+      <section class="login">
+        <input type="email" id="email" placeholder="メールアドレス" />
+        <input type="password" id="password" placeholder="パスワード" />
+
+        <button id="register">新規登録</button>
+        <button id="login">ログイン</button>
+        <button id="logout">ログアウト</button>
+      </section>
+    </main>
   </body>
+  <script src="main.js" type="module"></script>
 </html>
 <!-- ctrl+alt+kでブックマーク！ -->
