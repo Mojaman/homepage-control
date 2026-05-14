@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>記事の編集</title>
+  </head>
+  <body>
+    <main>
+      <p>
+        <a href="/index.html">戻る</a>
+      </p>
+      <section class="edit">
+        <div class="container">
+          <h3>このページから記事を編集・作成できます</h3>
+        </div>
+        <section class="sec_edit_articles">
+          <div class="index">
+            <h3>記事の編集</h3>
+          </div>
+          <div class="articles_list">
+            <p>記事一覧</p>
+            <iframe
+              src="/articles_list/articles_list.html"
+              width="80%"
+              height="auto"
+              title="コンテンツ"
+            >
+              エラーです！
+              <a href="/articles_list/articles_list.html"
+                >このリンクから飛んでください</a
+              >
+            </iframe>
+          </div>
+        </section>
+        <section class="sec_create_article">
+          <div class="index">
+            <h3>記事の作成</h3>
+          </div>
+          <!-- <a href=""><button id="create_article">記事を追加</button></a> -->
+          <textarea id="new_title" placeholder="タイトル"></textarea>
+          <button id="create_article">記事を追加</button>
+        </section>
+      </section>
+    </main>
+
+    <script src="edit_articles.js" type="module"></script>
+  </body>
+</html>

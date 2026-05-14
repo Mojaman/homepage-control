@@ -67,7 +67,7 @@ saveWelcome.addEventListener("click", async () => {
 // });
 
 onSnapshot(doc(db, "template", "welcome"), (snapshot) => {
-  alert(auth);
+  // alert(auth);
   displayWelcome.innerHTML = "";
   displayWelcome.textContent = snapshot.data().text.replace(/\n/g, "<br>");
   editWelcome.value = snapshot.data().text;

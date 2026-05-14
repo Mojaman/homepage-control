@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>記事編集ページ</title>
+  </head>
+  <body>
+    <style>
+      body {
+        background-color: #ffedee;
+      }
+    </style>
+
+    <main>
+      <section>
+        <div class="container">
+          <h3>記事の編集ページです</h3>
+        </div>
+        <section class="sec_edit_title">
+          <div class="index">
+            <h3>タイトル</h3>
+          </div>
+          <textarea id="edit_title"></textarea>
+          <div>
+            <p id="display_title"></p>
+          </div>
+          <button id="save_title">保存</button>
+        </section>
+        <section class="sec_edit_article">
+          <div class="index">
+            <h3>本文</h3>
+          </div>
+          <h4 id="subheading_num">小見出し</h4>
+          <textarea id="edit_subheading"></textarea>
+          <h4 id="sentence_num">記事</h4>
+          <textarea id="edit_sentence"></textarea>
+          <div id="display_article"></div>
+          <button id="add_article">追加</button>
+          <button id="delete_article">削除</button>
+          <button id="save_article">保存</button>
+        </section>
+        <section class="sec_manage_article">
+          <div class="index">
+            <h3>記事の公開・削除</h3>
+          </div>
+          <h4>この記事は<span id="is_published">読み込み中…</span></h4>
+          <button id="publish">公開</button>
+          <button id="delete_page">記事を削除</button>
+        </section>
+      </section>
+    </main>
+
+    <script src="article.js" type="module"></script>
+  </body>
+</html>
