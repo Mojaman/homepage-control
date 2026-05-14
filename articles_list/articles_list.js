@@ -47,7 +47,7 @@ onSnapshot(collection(db, "articles"), (snapshot) => {
     const title = data.title;
     const li = document.createElement("li");
     const a = document.createElement("a");
-    a.href = `/article/article.html?page=${doc.id}`;
+    a.href = `https://mojaman.github.io/homepage-control/article/article.html?page=${doc.id}`;
     a.target = "_blank";
     a.dataset.id = data.pageNumber;
     a.textContent = title;
