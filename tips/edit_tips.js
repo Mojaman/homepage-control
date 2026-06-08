@@ -39,7 +39,6 @@ const saveTip = document.getElementById("save-tip");
 const deleteTip = document.getElementById("delete-tip");
 const newTip = document.getElementById("new-tip");
 const createTip = document.getElementById("create-tip");
-const newTipContent = newTip.value;
 
 const auth = getAuth();
 
@@ -51,4 +50,14 @@ onSnapshot(collectionRef, (snapshot) => {
     li.textContent = data.text;
     tipsList.appendChild(li);
   });
+});
+
+createTip.addEventListener("click", async () => {
+  const newTipContent = newTip.value.trim();
+  alert(newTipContent);
+  await addDoc(collectionRef, {
+    text: newTipContent,
+    createdAt: new Date(),
+  });
+  newTip.value = "";
 });
