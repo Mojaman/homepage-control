@@ -14,11 +14,32 @@
       <p>
         <a href="../index.html">戻る</a>
       </p>
+      <div class="container">
+        <h3>このページから豆知識を編集・作成できます</h3>
+      </div>
+      <section class="edit">
+        <div class="index">
+          <h3>豆知識の編集</h3>
+        </div>
+        <div class="tips-list-container">
+          <!-- 豆知識のリストがここに表示されます -->
+          <ul id="tips-list">
+            <li>test tip</li>
+          </ul>
+        </div>
+        <textarea id="display-tip"></textarea>
+        <button id="save-tip">保存</button>
+        <button id="delete-tip">削除</button>
+      </section>
+      <section class="create">
+        <div class="index">
+          <h3>豆知識の作成</h3>
+        </div>
+        <textarea id="new-tip" placeholder="新しい豆知識"></textarea>
+        <button id="create-tip">豆知識を追加</button>
+      </section>
     </main>
 
-    <script
-      src="https://mojaman.github.io/homepage-control/tips/edit_tips.js"
-      type="module"
-    ></script>
+    <script src="edit_tips.js" type="module"></script>
   </body>
 </html>
