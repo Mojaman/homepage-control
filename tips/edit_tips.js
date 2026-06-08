@@ -29,3 +29,26 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
+
+const collectionRef = collection(db, "tips");
+
+// HTML取得
+const tipsList = document.getElementById("tips-list");
+const displayTip = document.getElementById("display-tip");
+const saveTip = document.getElementById("save-tip");
+const deleteTip = document.getElementById("delete-tip");
+const newTip = document.getElementById("new-tip");
+const createTip = document.getElementById("create-tip");
+const newTipContent = newTip.value;
+
+const auth = getAuth();
+
+onSnapshot(collectionRef, (snapshot) => {
+  tipsList.innerHTML = ""; // 一旦リセット
+  snapshot.forEach((doc) => {
+    const data = doc.data();
+    const li = document.createElement("li");
+    li.textContent = data.text;
+    tipsList.appendChild(li);
+  });
+});
