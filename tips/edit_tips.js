@@ -39,17 +39,55 @@ const saveTip = document.getElementById("save-tip");
 const deleteTip = document.getElementById("delete-tip");
 const newTip = document.getElementById("new-tip");
 const createTip = document.getElementById("create-tip");
+let selectedIndex = 0;
+let tips_data = [];
 
 const auth = getAuth();
 
 onSnapshot(collectionRef, (snapshot) => {
   tipsList.innerHTML = ""; // 一旦リセット
+  tips_data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  console.log(tips_data);
+
+  let index = 0;
   snapshot.forEach((doc) => {
     const data = doc.data();
     const li = document.createElement("li");
     li.textContent = data.text;
+    li.classList.add("tip-li");
+    li.dataset.index = index;
     tipsList.appendChild(li);
+
+    index++;
   });
+  reloadDisplay();
+});
+
+function reloadDisplay() {
+  displayTip.textContent = tips_data[selectedIndex].text;
+}
+
+// 今、snapshotで後から作成したliにアドイベントリスナーをつけてどれがクリックされたたか検知しようとしてるところで苦戦してるうわああああ
+// こいつどうにかしろ
+// function reloadList() {
+//   const tips = document.querySelectorAll(".tip-li");
+
+//   tips.forEach((tip) => {
+//     tip.classList.add("debug");
+//     // tip.addEventListener("click", () => {
+//     //   alert("unko");
+//     // });
+//   });
+// }
+
+tipsList.addEventListener("click", (e) => {
+  if (e.target.className === "tip-li") {
+    const tips = document.querySelectorAll(".tip-li");
+    tips.forEach((el) => {
+      el.classList.remove("active");
+    });
+    e.target.classList.add("active");
+  }
 });
 
 createTip.addEventListener("click", async () => {
