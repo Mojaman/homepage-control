@@ -48,6 +48,7 @@ onSnapshot(collectionRef, (snapshot) => {
   tipsList.innerHTML = ""; // 一旦リセット
   tips_data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   console.log(tips_data);
+  selectedIndex = 0;
 
   let index = 0;
   snapshot.forEach((doc) => {
@@ -55,6 +56,9 @@ onSnapshot(collectionRef, (snapshot) => {
     const li = document.createElement("li");
     li.textContent = data.text;
     li.classList.add("tip-li");
+    if (index === 0) {
+      li.classList.add("active");
+    }
     li.dataset.index = index;
     tipsList.appendChild(li);
 
@@ -64,7 +68,7 @@ onSnapshot(collectionRef, (snapshot) => {
 });
 
 function reloadDisplay() {
-  displayTip.textContent = tips_data[selectedIndex].text;
+  displayTip.value = tips_data[selectedIndex].text;
 }
 
 // 今、snapshotで後から作成したliにアドイベントリスナーをつけてどれがクリックされたたか検知しようとしてるところで苦戦してるうわああああ
@@ -86,13 +90,15 @@ tipsList.addEventListener("click", (e) => {
     tips.forEach((el) => {
       el.classList.remove("active");
     });
+    selectedIndex = e.target.dataset.index;
+    reloadDisplay();
     e.target.classList.add("active");
   }
 });
 
 createTip.addEventListener("click", async () => {
   const newTipContent = newTip.value.trim();
-  alert(newTipContent);
+  // alert(newTipContent);
   await addDoc(collectionRef, {
     text: newTipContent,
     createdAt: new Date(),
