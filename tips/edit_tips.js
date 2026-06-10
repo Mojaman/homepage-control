@@ -7,6 +7,7 @@ import {
   onSnapshot,
   setDoc,
   deleteDoc,
+  updateDoc,
   doc,
   getDocs,
 } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
@@ -98,12 +99,15 @@ tipsList.addEventListener("click", (e) => {
 });
 
 deleteTip.addEventListener("click", async () => {
-  const queryTips = await getDocs(collection(db, "tips"));
-  // queryTips.forEach((doc) => {
-  //   console.log(doc.data());
-  // });
   const docId = tips_data[selectedIndex].id;
   await deleteDoc(doc(db, "tips", docId));
+});
+
+saveTip.addEventListener("click", async () => {
+  const docId = tips_data[selectedIndex].id;
+  await updateDoc(doc(db, "tips", docId), {
+    text: displayTip.value,
+  });
 });
 
 createTip.addEventListener("click", async () => {
