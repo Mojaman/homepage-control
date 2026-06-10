@@ -8,6 +8,7 @@ import {
   setDoc,
   deleteDoc,
   doc,
+  getDocs,
 } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 import {
   getAuth,
@@ -94,6 +95,15 @@ tipsList.addEventListener("click", (e) => {
     reloadDisplay();
     e.target.classList.add("active");
   }
+});
+
+deleteTip.addEventListener("click", async () => {
+  const queryTips = await getDocs(collection(db, "tips"));
+  // queryTips.forEach((doc) => {
+  //   console.log(doc.data());
+  // });
+  const docId = tips_data[selectedIndex].id;
+  await deleteDoc(doc(db, "tips", docId));
 });
 
 createTip.addEventListener("click", async () => {
